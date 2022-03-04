@@ -9,16 +9,22 @@ const PORT = process.env.PORT || 3001;
 //use json
 //use routes
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(require('./routes')); // pull from routes folder
 
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-circle', {
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-app', {
     useFindAndModify: false,
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 });
 
 //log mongo queries
 mongoose.set('debug', true);
 
-//confirm connection
-app.listen(PORT, () =>console.log(`🔥 You're connected on http://localhost:${PORT} `));
+
+//confirm connection w/ link
+app.listen(PORT, () =>console.log(`🔥 You're connected on http://localhost:${PORT}`));
