@@ -19,6 +19,17 @@ const UserSchema = new Schema ({
 
     //include thoughts
 
+    thoughts: [
+        {
+
+                type: Schema.Types.ObjectId,
+                ref: 'Thought'
+        }
+    ],
+    
+    
+    
+
     //include friend count self-reference user model
     friends: [
         {
