@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 
+
 const UserSchema = new Schema ({
     username: {
         type: String, 
@@ -19,10 +20,29 @@ const UserSchema = new Schema ({
     //include thoughts
 
     //include friend count self-reference user model
+    friends: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ]
+
+   },
+    {
+        toJSON:
+        {
+            virtuals: true
+        },
+        id: false
+    }
+
+);
 
 
+//virtual to include friend count
+UserSchema.virtual('friendCount').get(function () {
+    return this.friends.length;
 });
-
 const User = model('User', UserSchema);
 
 module.exports = User;
