@@ -1,4 +1,4 @@
-# social-app
+# Social App
 
 
 # Description
@@ -8,7 +8,7 @@ This is a api for a social app, where users can be added, create thoughts, react
 
 # Usage
 
-This could be used as a basic api for a socail app or chat app.
+This could be used as a basic api for a social app or chat app.
 
 
 # Tech Used
